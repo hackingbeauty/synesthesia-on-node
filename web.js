@@ -1,28 +1,43 @@
-var express = require('express'),
-    jade = require('jade'),
-    path = require('path');
 
-var app = express.createServer(express.logger());
+/**
+ * Module dependencies.
+ */
+
+var express = require('express');
+
+var app = module.exports = express.createServer();
+
+// Configuration
+
 app.configure(function(){
-  app.set('views', path.join(__dirname, 'views'));
+  app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.set('view options');
-  var oneYear = 31557600000;
-  app.use("/", express.static(__dirname + '/public'));
   app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', function(request,response){
-  response.render('layout', {
-      locals: {some: 'Locals'}
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+});
+
+app.configure('production', function(){
+  app.use(express.errorHandler()); 
+});
+
+// Routes
+
+app.get('/', function(req, res){
+  res.render('index', {
+    title: 'Express'
   });
 });
 
-app.get('/neurons', function(request,response){
-  response.render('yes neurons!');
-});
+// Only listen on $ node app.js
 
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-  console.log("listening on " + port);
-});
+if (!module.parent) {
+  app.listen(3000);
+  console.log("Express server listening on port %d", app.address().port);
+}

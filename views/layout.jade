@@ -2,12 +2,23 @@
 html(lang="en")
   head
     title Synesthesia On Node
-    link(href='css/app.css',media='screen',rel='stylesheet',type='text/css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    p test123
-    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js')
-    script(type='text/javascript', src='js/modernizr-2.0.6.js')
-    script(type='text/javascript', src='js/underscore.js')
-    script(type='text/javascript', src='js/backbone.js')
-    script(type='text/javascript', src='js/app.js')
+    #main
+      
+      script(type='text/template', id='list_template')
+    
+      script(type='text/template', id='neuron_template')
+        {{body}}
+        {{url}}
+    
+      script(type='text/template', id='form_template')
+    
+      script(type='application/javascript')
+      
+    script(type='text/javascript', src='javascripts/jquery.js')
+    script(type='text/javascript', src='javascripts/modernizr-2.0.6.js')
+    script(type='text/javascript', src='javascripts/underscore.js')
+    script(type='text/javascript', src='javascripts/backbone.js')
+    script(type='text/javascript', src='javascripts/app.js')
   

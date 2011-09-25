@@ -1,5 +1,5 @@
 (function($){
-  
+
   window.Neuron = Backbone.Model.extend({ });
   
   window.Neurons = Backbone.Collection.extend({
@@ -18,27 +18,29 @@
       this.template = _.template($('#neuron_template').html());
     },
     render: function(){
-      var renderedContent = this.template(this.model.toJSON());
-      $(this.el).html(renderedContent);
+
+      $(this.el).html(this.template(this.model.toJSON()));
       return this;
     }
   });
   
   window.FormView = Backbone.View.extend({
-    tagName: 'textarea',
-    id: 'neuron_form',
-    events: {
-      'click .text':  'showInput'
-    },
+    tagName: 'input',
+    id: 'neuron-input',
     
+    events: {
+      'input #neuron_input':'showInput'
+    },
     initialize: function(){
       _.bindAll(this,'render');
       this.template = _.template($('#form_template').html());
     },
     render: function(){
+      // $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
     showInput: function(){
+      alert('hi');
       console.log('input');
     }
   })
@@ -49,7 +51,13 @@
     
   window.ListView = Backbone.View.extend({
     tagName: 'li',
-    className: 'list',
+    className: 'neuron',
+    events:{
+      'click .neuron':'test'
+    },
+    test: function(){
+      alert('test');
+    },
     initialize: function(){
       _.bindAll(this, 'render');
       this.template = _.template($('#list_template').html());
