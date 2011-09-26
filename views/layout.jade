@@ -3,19 +3,8 @@ html(lang="en")
   head
     title Synesthesia On Node
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+  body!= body
     #main
-      
-      script(type='text/template', id='list_template')
-    
-      script(type='text/template', id='neuron_template')
-        {{body}}
-        {{url}}
-    
-      script(type='text/template', id='form_template')
-    
-      script(type='application/javascript')
-      
     script(type='text/javascript', src='javascripts/jquery.js')
     script(type='text/javascript', src='javascripts/modernizr-2.0.6.js')
     script(type='text/javascript', src='javascripts/underscore.js')

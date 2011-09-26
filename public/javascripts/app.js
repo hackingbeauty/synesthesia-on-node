@@ -25,22 +25,21 @@
   });
   
   window.FormView = Backbone.View.extend({
-    tagName: 'input',
-    id: 'neuron-input',
+    tagName: 'form',
+    id: 'neuron-form',
     
     events: {
-      'input #neuron_input':'showInput'
+      'input .neuron_input':'showInput'
     },
     initialize: function(){
       _.bindAll(this,'render');
       this.template = _.template($('#form_template').html());
     },
     render: function(){
-      // $(this.el).html(this.template(this.model.toJSON()));
+      $(this.el).html(this.template);
       return this;
     },
     showInput: function(){
-      alert('hi');
       console.log('input');
     }
   })
