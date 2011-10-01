@@ -5,9 +5,20 @@ html(lang="en")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body!= body
     #main
+    // backbone dependencies
     script(type='text/javascript', src='javascripts/jquery.js')
     script(type='text/javascript', src='javascripts/modernizr-2.0.6.js')
     script(type='text/javascript', src='javascripts/underscore.js')
     script(type='text/javascript', src='javascripts/backbone.js')
-    script(type='text/javascript', src='javascripts/app.js')
+    
+    // backbone app
+    script(type='text/javascript', src='javascripts/app/models/neuron.js')
+    script(type='text/javascript', src='javascripts/app/collections/neurons.js')
+    script(type='text/javascript', src='javascripts/app/views/neuron_view.js')
+    script(type='text/javascript', src='javascripts/app/views/form_view.js')
+    script(type='text/javascript', src='javascripts/app/views/list_view.js')
+    script(type='text/javascript', src='javascripts/app/router.js')
+    
+    
+    
   
