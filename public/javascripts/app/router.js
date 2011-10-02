@@ -2,24 +2,17 @@
 
   window.BackboneSynesthesia = Backbone.Router.extend({
     routes:{
-      '':'home',
-      'blank':'blank'
+      '':'home'
     },
     initialize: function(){
-      this.listView = new ListView({
+      this.neuron_list_view = new NeuronListView({
         collection: new Neurons()
       });
-      this.formView = new FormView({});
+      this.neuron_form_view = new NeuronFormView({});
     },
     home: function(){
-      var $container = $('#main');
-      $container.empty();
-      $container.append(this.listView.render().el);
-      $container.append(this.formView.render().el);
-    },
-    blank: function(){
-      $('#main').empty();
-      $('#main').text('blank');
+      this.neuron_list_view.render().el;
+      this.neuron_form_view.render().el;
     }
   });
   

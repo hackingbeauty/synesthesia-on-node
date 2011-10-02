@@ -2,9 +2,12 @@
   
   window.Neuron = Backbone.Model.extend({ 
     defaults: function(){
-      done:false,
-      order:Neurons.nextOrder()
+      done:false
+    },
+    toggle: function(){
+      this.save({done: !this.get('done')});
     }
+
   });
   
 }(jQuery));
