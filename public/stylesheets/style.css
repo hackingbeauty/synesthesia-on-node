@@ -1,6 +1,7 @@
 body {
-  background: #000;
-  color: #00bce7;
+  background: #22252a;
+  color: #eee;
+  font: normal 1.2em "Trebuchet MS", sans-serif;
 }
 #main {
   display: inline-block;
@@ -11,9 +12,19 @@ body {
   width: 55%;
 }
 #neuron_form {
-  float: right;
-  width: 40%;
-}
-#neuron_form #neuron_text_area {
+  position: fixed;
   width: 100%;
+  bottom: 0;
+}
+#neuron_form #toolbar {
+  background: #0089d3;
+  height: 30px;
+}
+#neuron_form #neuron_input {
+  width: 100%;
+  padding: 1em;
+  background: #22252a;
+  color: inherit;
+  font: inherit;
+  border: none;
 }
