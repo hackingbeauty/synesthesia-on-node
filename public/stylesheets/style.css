@@ -1,12 +1,19 @@
-* {
-  border: 1px solid #f00;
-}
 body {
   background: #000;
   color: #00bce7;
 }
+#main {
+  display: inline-block;
+  width: 100%;
+}
+#neurons {
+  float: left;
+  width: 55%;
+}
 #neuron_form {
   float: right;
-  height: 300px;
-  width: 600px;
+  width: 40%;
+}
+#neuron_form #neuron_text_area {
+  width: 100%;
 }

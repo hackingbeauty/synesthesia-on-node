@@ -14,7 +14,8 @@
       this.collection.bind('reset', this.render);
     },
     render: function(){
-      
+      var renderedContent = $(this.el).html(this.template);
+      $(this.hook).html(renderedContent);
       return this;
     }
   });

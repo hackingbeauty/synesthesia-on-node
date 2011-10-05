@@ -3,8 +3,9 @@ html(lang="en")
   head
     title Synesthesia On Node
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+  body 
     #main
+      != body
     // backbone dependencies
     script(type='text/javascript', src='javascripts/jquery.js')
     script(type='text/javascript', src='javascripts/modernizr-2.0.6.js')
