@@ -3,9 +3,13 @@
  * Module dependencies.
  */
 
-var express = require('express');
+var express = require('express'),
+    socket  = require('socket.io'),
+    path    = require('path'),
+    sys     = require('sys');
 
 var app = module.exports = express.createServer();
+socket.listen(app);
 
 // Configuration
 
@@ -33,6 +37,9 @@ app.get('/', function(req, res){
   res.render('index', {
     title: 'Express'
   });
+  var SocketConnector = require('./lib/socket_connector.js'); 
+  new SocketConnector();
+  
 });
 
 // Only listen on $ node app.js
